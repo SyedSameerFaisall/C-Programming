@@ -1,20 +1,18 @@
-/* File: 2d-array-fcn2.cpp
- * Each row of a 2D array, e.g., a[N][M], can be treated as a 1D array. 
- * The i-th row can be addressed as a[N],
- * which represents a 1D array of M elements.
- */
+#include <iostream>
+using namespace std;
 
-float euclidean_distance(const float point_A[], const float point_B[])
-{
-    float x_diff = point_A[0] - point_B[0];
-    float y_diff = point_A[1] - point_B[1];
-    return sqrt(x_diff*x_diff + y_diff*y_diff);
+void printMatrix(int matrix[][3], int rows, int cols) {
+    for(int i = 0; i < rows; i++) {
+        for(int j = 0; j < cols; j++) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
 }
 
-void compute_all_distances(
-    const float point[][2], float dist[][3], int num_points)
-{
-    for (int i = 0; i < num_points; i++)
-        for (int j = 0; j < num_points; j++)
-            dist[i][j] = euclidean_distance(point[i], point[j]);
-}
+int main() {
+    int matrix[2][3] = {{1, 2, 3}, {4, 5, 6}};
+    cout << "Matrix:" << endl;
+    printMatrix(matrix, 2, 3);
+    return 0;
+} 
